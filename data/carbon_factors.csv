@@ -1,0 +1,6 @@
+category,unit,baseline_kg_co2e_per_unit,notes
+steel,tonne,2100,Structural steel industry average (synthetic sample figure)
+concrete,m3,350,Ready-mix concrete average (synthetic sample figure)
+electrical,unit,125,Switchgear and cabling packages (synthetic sample figure)
+logistics,delivery,90,Regional freight per delivery (synthetic sample figure)
+ppe,kit,12,Site PPE kit including textiles (synthetic sample figure)

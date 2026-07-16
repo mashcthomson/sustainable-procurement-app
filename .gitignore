@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Generated exports
+exports/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store

@@ -1,0 +1,15 @@
+vendor_id,vendor_name,category,unit_cost,capacity_units,carbon_kg_per_unit,env_score,social_score,gov_score,is_diverse_supplier,region
+V01,Meridian Steelworks,steel,940,300,2350,74,85,86,0,VIC
+V02,Southbank Steel Supply,steel,860,250,2050,62,55,58,0,NSW
+V03,GreenForge Metals,steel,1120,220,1700,90,80,78,1,VIC
+V04,Bayside Concrete Co,concrete,285,400,330,58,76,78,0,VIC
+V05,EcoMix Concrete,concrete,330,350,290,88,72,74,1,QLD
+V06,Westgate Premix,concrete,262,300,300,66,52,55,0,VIC
+V07,Helix Electrical Supplies,electrical,1350,180,110,72,75,80,0,NSW
+V08,Solaris Components,electrical,1480,150,125,90,84,86,1,SA
+V09,Northline Electrical,electrical,1250,160,96,70,55,58,0,VIC
+V10,Corridor Freight Group,logistics,430,220,72,62,68,70,0,NSW
+V11,EverTrans Logistics,logistics,515,200,88,85,82,78,1,VIC
+V12,Pacific Haulage,logistics,450,180,95,60,58,60,0,QLD
+V13,SafeSite Workwear,ppe,74,400,13.5,72,85,74,1,VIC
+V14,Apex Safety Supplies,ppe,63,350,10.8,60,64,66,0,NSW

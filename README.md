@@ -15,6 +15,8 @@ This came out of RMIT's Work Integrated Learning program — a collaboration wit
 
 The brief was roughly: help procurement teams make vendor decisions that account for environmental and social impact, not just cost. Easy to say, harder to actually build something useful around.
 
+(Industry partner note: this was built during an RMIT WIL engagement with ACCIONA — no partner branding assets or client data are included in this repo, and the sample datasets are synthetic.)
+
 ---
 
 ## What we built
@@ -66,13 +68,18 @@ It's multi-objective, which means you're not just optimising for one thing — y
 
 ```
 sustainable-procurement-app/
-├── app.py                      # Main Streamlit application
+├── Home.py                     # Streamlit entry point (multipage app)
+├── app.py                      # Thin launcher kept for backwards compat
+├── pages/
+│   ├── 1_Optimiser.py          # Live solve with adjustable constraints
+│   ├── 2_Trade-off_Explorer.py # Carbon vs ESG Pareto frontier
+│   └── 3_Data.py               # Data viewer + Excel export
 ├── optimization/
 │   ├── vendor_selector.py      # PuLP optimisation model
 │   └── esg_scoring.py          # ESG scoring algorithm
 ├── data/
-│   ├── vendors.csv             # Sample vendor dataset
-│   └── carbon_factors.csv      # Carbon emission factors
+│   ├── vendors.csv             # Sample vendor dataset (synthetic)
+│   └── carbon_factors.csv      # Carbon emission factors (synthetic)
 ├── visualizations/
 │   └── dashboard.py            # Plotly chart components
 ├── export/
@@ -89,8 +96,27 @@ sustainable-procurement-app/
 git clone https://github.com/mashcthomson/sustainable-procurement-app.git
 cd sustainable-procurement-app
 pip install -r requirements.txt
-streamlit run app.py
+streamlit run Home.py
 ```
+
+(`streamlit run app.py` still works too — it just launches the same home page.)
+
+---
+
+## Example results
+
+Running the optimiser with the default settings (budget $1,200,000, objective weight 0.5, minimum 6 suppliers, minimum 25% diverse-supplier spend) against the included **synthetic sample vendor dataset** — the original client vendor data isn't recoverable, so these numbers come purely from the sample CSVs:
+
+| Metric | Value |
+|--------|-------|
+| Solver status | Optimal |
+| Total cost | $1,126,850 (93.9% of budget) |
+| Total carbon | 988.0 t CO₂e |
+| Achieved ESG score | 75.3 / 100 |
+| Vendors selected | 10 of 14 |
+| Diverse-supplier spend share | 63.6% |
+
+The Pareto sweep behind the Trade-off Explorer tells the more interesting story: the unconstrained minimum-carbon plan lands at **973.4 t CO₂e with an ESG score of 69.5**, so ESG floors up to ~68 change nothing. Past that knee, every extra point of ESG costs real carbon — pushing the floor to 76 drives emissions up to **1,006.9 t**, and anything above 76 is infeasible under the default budget and diversity rules. That's exactly the kind of trade-off the tool was built to make visible.
 
 ---
 

@@ -1,0 +1,6 @@
+streamlit~=1.59
+pulp~=3.3
+plotly~=6.9
+pandas~=3.0
+numpy~=2.5
+openpyxl~=3.1
